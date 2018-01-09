@@ -1,5 +1,4 @@
 //apply from: 'dependencyDefinitions.gradle'
-//apply plugin: 'application'
 
 buildscript {
     ext {
