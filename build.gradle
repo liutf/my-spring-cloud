@@ -1,0 +1,56 @@
+//apply from: 'dependencyDefinitions.gradle'
+//apply plugin: 'application'
+
+buildscript {
+    ext {
+        springBootVersion = '1.5.8.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+ext {
+    springCloudVersion = 'Dalston.SR5'
+}
+
+allprojects {
+    repositories {
+        mavenCentral()
+    }
+    group = 'com.liutf'
+    version = '0.0.1-SNAPSHOT'
+}
+
+
+subprojects {
+    apply plugin: 'java'
+    apply plugin: 'idea'
+    apply plugin: 'eclipse'
+    apply plugin: 'org.springframework.boot'
+
+    sourceCompatibility = 1.8
+    [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+//    configurations {
+//        all*.exclude module: 'spring-boot-starter-logging'
+//    }
+
+    dependencies {
+        compile('com.google.guava:guava:23.4-jre')
+        compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+        }
+    }
+
+}
+
