@@ -9,4 +9,6 @@ include 'chapter-2:service-ribbon'
 findProject(':chapter-2:service-ribbon')?.name = 'service-ribbon'
 include 'chapter-3:service-feign'
 findProject(':chapter-3:service-feign')?.name = 'service-feign'
+include 'chapter-4:hystrix-demo'
+findProject(':chapter-4:hystrix-demo')?.name = 'hystrix-demo'
 
