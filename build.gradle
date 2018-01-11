@@ -13,7 +13,7 @@ buildscript {
 }
 
 ext {
-    springCloudVersion = 'Dalston.SR5'
+    springCloudVersion = 'Dalston.RELEASE'
 }
 
 allprojects {
@@ -38,18 +38,22 @@ subprojects {
 //        all*.exclude module: 'spring-boot-starter-logging'
 //    }
 
-    dependencies {
-        compile('com.google.guava:guava:23.4-jre')
-        compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
-        testCompile('org.springframework.boot:spring-boot-starter-test')
-    }
-
-
     dependencyManagement {
         imports {
             mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
         }
     }
+
+    dependencies {
+        compileOnly('org.projectlombok:lombok')
+        compile 'com.google.guava:guava:23.6-jre'
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.cloud:spring-cloud-starter-eureka')
+        testCompile('org.springframework.boot:spring-boot-starter-test')
+    }
+
+
+
 
 }
 
