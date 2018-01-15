@@ -23,4 +23,8 @@ include 'chapter-7:service-hi'
 findProject(':chapter-7:service-hi')?.name = 'service-hi'
 include 'chapter-7:service-miya'
 findProject(':chapter-7:service-miya')?.name = 'service-miya'
+include 'chapter-8:eureka-server-multiple'
+findProject(':chapter-8:eureka-server-multiple')?.name = 'eureka-server-multiple'
+include 'chapter-8:eureka-client'
+findProject(':chapter-8:eureka-client')?.name = 'eureka-client'
 
