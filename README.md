@@ -39,41 +39,41 @@
 
 * 工程代码结构
 
-  ├── build.gradle
-  ├── chapter-1
-  │   ├── eureka-client
-  │   ├── eureka-server
-  ├── chapter-2
-  │   ├── service-hi
-  │   ├── service-ribbon
-  ├── chapter-3
-  │   ├── service-feign
-  ├── chapter-4
-  │   ├── hystrix-demo
-  ├── chapter-5
-  │   ├── service-zuul
-  ├── chapter-6
-  │   ├── config-client
-  │   ├── config-server
-  ├── chapter-7
-  │   ├── server-zipkin
-  │   ├── service-hi
-  │   ├── service-miya
-  ├── chapter-8
-  │   ├── eureka-client
-  │   ├── eureka-server-multiple
-  ├── dependencyDefinitions.gradle
-  ├── gradle
-  │   └── wrapper
-  ├── gradlew
-  ├── gradlew.bat
-  ├── LICENSE
-  ├── README.md
-  └── settings.gradle
+  ├── build.gradle  
+  ├── chapter-1  
+  │   ├── eureka-client  
+  │   ├── eureka-server  
+  ├── chapter-2  
+  │   ├── service-hi  
+  │   ├── service-ribbon  
+  ├── chapter-3  
+  │   ├── service-feign  
+  ├── chapter-4  
+  │   ├── hystrix-demo  
+  ├── chapter-5  
+  │   ├── service-zuul  
+  ├── chapter-6  
+  │   ├── config-client  
+  │   ├── config-server  
+  ├── chapter-7  
+  │   ├── server-zipkin  
+  │   ├── service-hi  
+  │   ├── service-miya  
+  ├── chapter-8  
+  │   ├── eureka-client  
+  │   ├── eureka-server-multiple  
+  ├── dependencyDefinitions.gradle  
+  ├── gradle  
+  │   └── wrapper  
+  ├── gradlew  
+  ├── gradlew.bat  
+  ├── LICENSE  
+  ├── README.md  
+  └── settings.gradle  
 
   ​
 
-* 根build.gradle配置
+* 根目录build.gradle配置
 
   ```groovy
   buildscript {
@@ -100,22 +100,21 @@
       version = '0.0.1-SNAPSHOT'
   }
 
-
   subprojects {
       apply plugin: 'java'
       apply plugin: 'idea'
       apply plugin: 'eclipse'
       apply plugin: 'org.springframework.boot'
-
+    
       sourceCompatibility = 1.8
       [compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
-
+    
       dependencyManagement {
           imports {
               mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
           }
       }
-
+    
       dependencies {
           compileOnly('org.projectlombok:lombok')
           compile 'com.google.guava:guava:23.6-jre'
@@ -125,5 +124,3 @@
       }
   }
   ```
-
-  ​
