@@ -10,8 +10,3 @@ server:
 spring:
   application:
     name: service-hi
-
-
-
-
-
