@@ -19,6 +19,7 @@ public class EurekaClientApplication {
 
 	@Value("${server.port}")
 	String port;
+
 	@GetMapping("/hi/{name}")
 	public String hi(@PathVariable String name) {
 		return "hi "+name+",i am from port:" +port;
