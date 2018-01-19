@@ -1,11 +1,8 @@
 package com.liutf;
 
-import com.google.common.collect.Maps;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
-
-import java.util.HashMap;
 
 /**
  * FileName: HelloServiceImpl
@@ -23,12 +20,8 @@ public class HelloServiceImpl implements HelloService {
     @Override
     public String say(String name){
         String url = "http://SERVICE-HI/hi";
-        HashMap<String, Object> param = Maps.newHashMap();
-        param.put("name","name");
-//        return restTemplate.getForObject(url, String.class, param);
-        String result = restTemplate.getForObject(url + "?name=" + name, String.class);
+        String result = restTemplate.getForObject(url + "/" + name, String.class);
         return result;
     }
-
 
 }

@@ -78,7 +78,7 @@ dependencies {
       fetch-registry: false
       service-url:
         defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-  		
+        
   ```
 
 * 启动服务，访问 [http://localhost:8761/](http://localhost:8761/)

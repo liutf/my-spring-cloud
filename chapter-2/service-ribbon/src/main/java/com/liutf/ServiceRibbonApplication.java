@@ -10,7 +10,6 @@ import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@RestController
 public class ServiceRibbonApplication {
 
 	public static void main(String[] args) {
