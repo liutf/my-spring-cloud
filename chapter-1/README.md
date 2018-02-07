@@ -1,8 +1,16 @@
-## Spring Cloud 入门教程：服务注册与发现 - Eureka
+# Spring Cloud 入门教程：服务注册与发现 - Eureka
+
+![](https://ws1.sinaimg.cn/large/006ctfxYly1fnrhuw4b5jj311s0l70ts.jpg)
 
 
 
-### 创建服务注册中心
+## Eureka简介
+
+> Spring Cloud Eureka是Spring Cloud Netflix项目下的服务治理模块。而Spring Cloud Netflix项目是Spring Cloud的子项目之一，主要内容是对Netflix公司一系列开源产品的包装，它为Spring Boot应用提供了自配置的Netflix OSS整合。通过一些简单的注解，开发者就可以快速的在应用中配置一下常用模块并构建庞大的分布式系统。它主要提供的模块包括：服务发现（Eureka），断路器（Hystrix），智能路由（Zuul），客户端负载均衡（Ribbon）等。
+
+
+
+## 创建服务注册中心
 
 * 创建一个Module，命名为`eureka-server` 。
 
@@ -24,26 +32,25 @@
 
 * 在module内的`build.gradle` 中添加依赖：
 
-```  groovy
-group 'com.liutf'
-version '0.0.1-SNAPSHOT'
+  ``` groovy
+  group 'com.liutf'
+  version '0.0.1-SNAPSHOT'
 
-apply plugin: 'java'
+  apply plugin: 'java'
 
-sourceCompatibility = 1.8
+  sourceCompatibility = 1.8
 
-repositories {
-    mavenCentral()
-}
+  repositories {
+      mavenCentral()
+  }
 
-dependencies {
-    compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
-    testCompile group: 'junit', name: 'junit', version: '4.12'
-}
+  dependencies {
+      compile('org.springframework.cloud:spring-cloud-starter-eureka-server')
+      testCompile group: 'junit', name: 'junit', version: '4.12'
+  }
+  ```
 
-```
-
-
+  ​
 
 * `EurekaServerApplication.java` 启动类中添加注解：`@EnableEurekaServer` 
 
@@ -78,7 +85,7 @@ dependencies {
       fetch-registry: false
       service-url:
         defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-  		
+        
   ```
 
 * 启动服务，访问 [http://localhost:8761/](http://localhost:8761/)
@@ -87,7 +94,7 @@ dependencies {
 
 
 
-### 创建服务提供方
+## 创建服务提供方
 
 * 创建一个Module，命名为`eureka-client` 。创建过程同上。
 
@@ -152,6 +159,8 @@ dependencies {
 * 再访问Eureka： [http://localhost:8761/](http://localhost:8761/) ，此时，我们的服务已注册到Eureka，注册完成。
 
   ![](http://7viho5.com1.z0.glb.clouddn.com/201801161620_592.png) 
+
+
 
 
 
